@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for Item'
+define service Zpk_citem02SD {
+  expose zpk_citem_02 as Item;
+}

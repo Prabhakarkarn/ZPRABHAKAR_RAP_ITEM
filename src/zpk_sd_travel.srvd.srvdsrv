@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD for table entity travel'
+define service Zpk_sd_travel {
+  expose zpk_ctravel;
+}

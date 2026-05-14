@@ -1,0 +1,36 @@
+managed implementation in class zbp_pk_dd_item02 unique;
+strict ( 2 );
+with draft;
+
+define behavior for zpk_dd_item02 //alias <alias_name>
+persistent table zpk_item02
+draft table zpk_item02_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly,numbering : managed ) ItemId;
+
+  draft action Activate optimized;
+  draft action Edit;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare { }
+
+  mapping for zpk_item02
+  { ItemId      = item_id;
+      Name        = name;
+      Description = description;
+      Price       = price;
+      StatusCode  = status_code;
+      LastChangedAt = last_changed_at;
+      LocalCreatedAt = local_created_at;
+      LocalCreatedBy = local_created_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LocalLastChangedBy = local_last_changed_by;
+      }
+}

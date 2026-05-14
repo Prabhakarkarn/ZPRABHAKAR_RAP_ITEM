@@ -1,0 +1,16 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for zpk_citem_02 alias Item
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Activate;
+  use action Edit;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}

@@ -1,0 +1,19 @@
+managed implementation in class zbp_pk_travel unique;
+strict ( 2 );
+with draft;
+define behavior for zpk_travel alias pk_travel
+lock master total etag lastchangedat
+draft table zdpktravel
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) lastchangedat;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+}
